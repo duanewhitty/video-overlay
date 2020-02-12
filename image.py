@@ -12,7 +12,7 @@ def text_on_image(filename='image-01.png', text='Hello', size=12, color=(255,255
     # save file
     image.save(filename)
     #show file
-    os.system(filename)
+    #os.system(filename)
 
 
 text_on_image(text="Text to write on image", size=300, bg='red')
