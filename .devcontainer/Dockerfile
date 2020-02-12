@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # property in devcontainer.json to use it. On Linux, the container user's GID/UIDs
 # will be updated to match your local UID/GID (when using the dockerFile property).
 # See https://aka.ms/vscode-remote/containers/non-root-user for details.
-ARG USERNAME=duane
+ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
@@ -30,6 +30,7 @@ RUN apt-get update \
     #
     # Install pylint
     && pip --disable-pip-version-check --no-cache-dir install pylint \
+    # Install Pillow image library
     && pip --disable-pip-version-check --no-cache-dir install Pillow \
     
     #
@@ -44,8 +45,6 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
-    &&  git config --global user.email "duane@nofroth.com"\
-    && git config --global user.name "Duane Whitty"\
     #
     # Clean up
     && apt-get autoremove -y \
