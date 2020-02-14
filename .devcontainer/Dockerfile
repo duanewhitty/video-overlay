@@ -32,7 +32,6 @@ RUN apt-get update \
     && pip --disable-pip-version-check --no-cache-dir install pylint \
     # Install Pillow image library
     && pip --disable-pip-version-check --no-cache-dir install Pillow \
-    
     #
     # Update Python environment based on requirements.txt
     # && pip --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
